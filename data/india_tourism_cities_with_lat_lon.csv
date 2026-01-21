@@ -1,0 +1,38 @@
+city,state,type,lat,lon
+Delhi,Delhi,Heritage,28.6139,77.209
+Mumbai,Maharashtra,Urban,19.076,72.8777
+Jaipur,Rajasthan,Heritage,26.9124,75.7873
+Agra,Uttar Pradesh,Heritage,27.1767,78.0081
+Varanasi,Uttar Pradesh,Spiritual,25.3176,82.9739
+Bhubaneswar,Odisha,Heritage,20.2961,85.8245
+Puri,Odisha,Spiritual,19.8135,85.8312
+Konark,Odisha,Heritage,19.8876,86.0945
+Kolkata,West Bengal,Cultural,22.5726,88.3639
+Darjeeling,West Bengal,Hill,27.036,88.2627
+Gangtok,Sikkim,Hill,27.3389,88.6065
+Shillong,Meghalaya,Hill,25.5788,91.8933
+Guwahati,Assam,Cultural,26.1445,91.7362
+Chennai,Tamil Nadu,Urban,13.0827,80.2707
+Madurai,Tamil Nadu,Heritage,9.9252,78.1198
+Rameswaram,Tamil Nadu,Spiritual,9.2876,79.3129
+Bengaluru,Karnataka,Urban,12.9716,77.5946
+Mysuru,Karnataka,Heritage,12.2958,76.6394
+Hampi,Karnataka,Heritage,15.335,76.46
+Hyderabad,Telangana,Heritage,17.385,78.4867
+Goa,Goa,Beach,15.2993,74.124
+Kochi,Kerala,Backwaters,9.9312,76.2673
+Munnar,Kerala,Hill,10.0889,77.0595
+Trivandrum,Kerala,Cultural,8.5241,76.9366
+Manali,Himachal Pradesh,Hill,32.2432,77.1892
+Shimla,Himachal Pradesh,Hill,31.1048,77.1734
+Leh,Ladakh,Adventure,34.1526,77.5771
+Srinagar,Jammu & Kashmir,Hill,34.0837,74.7973
+Udaipur,Rajasthan,Heritage,24.5854,73.7125
+Jaisalmer,Rajasthan,Desert,26.9157,70.9083
+Ahmedabad,Gujarat,Heritage,23.0225,72.5714
+Dwarka,Gujarat,Spiritual,22.2442,68.9685
+Somnath,Gujarat,Spiritual,20.888,70.4012
+Amritsar,Punjab,Spiritual,31.634,74.8723
+Chandigarh,Chandigarh,Urban,30.7333,76.7794
+Pondicherry,Puducherry,Beach,11.9416,79.8083
+Port Blair,Andaman,Beach,11.6234,92.7265
