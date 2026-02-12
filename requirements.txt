@@ -3,6 +3,7 @@ python-dotenv
 pandas
 numpy
 streamlit
+altair==4.2.0
 
 # Optional heavy ML deps (transformers, torch, sentencepiece, langchain, googlemaps)
 # were removed to keep Streamlit Cloud builds fast and reliable.
