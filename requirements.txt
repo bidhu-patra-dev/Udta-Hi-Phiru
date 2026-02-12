@@ -1,3 +1,4 @@
+./imghdr_pkg
 requests
 python-dotenv
 pandas
