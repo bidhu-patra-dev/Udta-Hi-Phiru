@@ -1,9 +1,10 @@
-streamlit
 requests
 python-dotenv
 googlemaps
 langchain
-transformers
-torch
 pandas
 numpy
+streamlit
+transformers>=4.36.0
+torch
+sentencepiece
