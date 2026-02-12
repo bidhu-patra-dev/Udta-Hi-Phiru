@@ -1,10 +1,9 @@
 requests
 python-dotenv
-googlemaps
-langchain
 pandas
 numpy
 streamlit
-transformers>=4.36.0
-torch
-sentencepiece
+
+# Optional heavy ML deps (transformers, torch, sentencepiece, langchain, googlemaps)
+# were removed to keep Streamlit Cloud builds fast and reliable.
+# Add them back only if you need server-side model inference.
