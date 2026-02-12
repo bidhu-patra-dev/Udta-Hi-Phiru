@@ -38,11 +38,18 @@ def estimate_travel(source, destination, transport_mode):
         'mode': transport_mode,
         'travel_cost': travel_cost
     }
-from transformers import pipeline
-generator = pipeline(
-    "text2text-generation",
-    model="google/flan-t5-base"
-)
+try:
+    from transformers import pipeline
+    generator = pipeline(
+        "text2text-generation",
+        model="google/flan-t5-base"
+    )
+except Exception:
+    # If transformers or model aren't available in the environment,
+    # fall back to a lightweight generator set to None. The
+    # `generate_travel_plan` function below will handle this case
+    # and return a simple, deterministic plan so the app doesn't error.
+    generator = None
 
 import random
 import re
@@ -70,12 +77,44 @@ Format:
 3. Budget hacks
 """
 
-    response = generator(
-        prompt,
-        max_length=256
-    )
+    # If a transformers pipeline is available, use it. Otherwise return
+    # a simple deterministic plan so the Streamlit app can run without
+    # heavy ML dependencies or internet access.
+    if generator is not None:
+        try:
+            response = generator(
+                prompt,
+                max_length=256
+            )
+            return response[0].get("generated_text", str(response))
+        except Exception:
+            # Fall through to lightweight plan on any generation error
+            pass
 
-    return response[0]["generated_text"]
+    # Lightweight fallback plan
+    travel_info = None
+    try:
+        travel_info = estimate_travel(source_city, destination_city, transport_mode)
+    except Exception:
+        travel_info = {"distance": 0, "travel_cost": 0}
+
+    stay_info = None
+    try:
+        stay_info = estimate_stay_and_food(destination_city, days)
+    except Exception:
+        stay_info = {"stay_cost": 0, "food_cost": 0}
+
+    total_est = travel_info.get('travel_cost', 0) + stay_info.get('stay_cost', 0) + stay_info.get('food_cost', 0)
+
+    plan_lines = []
+    plan_lines.append(f"Best option: {transport_mode} — ₹{travel_info.get('travel_cost', 0)}")
+    plan_lines.append(f"Estimated total cost: ₹{total_est}")
+    plan_lines.append("Day-wise plan:")
+    for d in range(1, max(1, days) + 1):
+        plan_lines.append(f"{d}. Explore {destination_city} — highlights and local eats.")
+    plan_lines.append("Budget hacks: choose off-peak travel, eat local, book shared stays.")
+
+    return "\\n".join(plan_lines)
 def estimate_stay_and_food(destination_city, days):
     df = pd.read_csv(CITY_DATA_PATH)
     city_row = df[df["city"] == destination_city].iloc[0]
