@@ -1,32 +1,4 @@
 import streamlit as st
-import sys
-import os
-
-if 'history' not in st.session_state:
-    st.session_state.history = []
-
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
-from backend.app import load_cities, generate_travel_plan, estimate_total_cost
-
-st.set_page_config(
-    page_title="Udta Hi Phiru",
-    page_icon="🎒",
-    layout="centered"
-)
-
-# ---- CUSTOM CSS ----
-st.markdown("""
-<style>
-.big-title {
-    font-size: 40px;
-    font-weight: 800;
-    text-align: center;
-}
-.sub {
-    text-align: center;
-    color: #aaa;
-    margin-bottom: 30px;
-}
 import streamlit as st
 import sys
 import os
